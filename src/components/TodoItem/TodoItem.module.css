@@ -1,0 +1,9 @@
+.todoItem {
+    display: flex;
+    flex-direction: row;
+}
+
+.ticked {
+    color: lightgray;
+    opacity: 50%;
+}

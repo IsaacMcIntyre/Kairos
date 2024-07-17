@@ -1,9 +1,13 @@
-import Image from "next/image";
+'use client'
+
 import styles from "./page.module.css";
+import TodoList from "@/components/TodoList/TodoList";
 
 export default function Home() {
   return (
     <main className={styles.main}>
+      <TodoList />
+      {/* <div>
       <div className={styles.description}>
         <p>
           Get started by editing&nbsp;
@@ -90,6 +94,7 @@ export default function Home() {
           </p>
         </a>
       </div>
+      </div> */}
     </main>
   );
 }
