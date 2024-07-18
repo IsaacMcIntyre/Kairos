@@ -1,0 +1,13 @@
+.todoList {
+    width: 100%;
+    padding: 20px 12px;
+    background-color: aliceblue;
+    @media (min-width: 600px) {
+        width: 300px;
+      }
+}
+
+.todoItemContainer {
+    display: flex;
+    flex-direction: column;
+}

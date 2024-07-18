@@ -1,6 +1,7 @@
-.todoItem {
+.item {
     display: flex;
     flex-direction: row;
+    width: 10px;
 }
 
 .ticked {
