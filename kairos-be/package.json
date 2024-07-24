@@ -1,0 +1,14 @@
+{
+  "name": "kairos-be",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "scripts": {
+    "test": "npm test"
+  },
+  "author": "Isaac McIntyre",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
