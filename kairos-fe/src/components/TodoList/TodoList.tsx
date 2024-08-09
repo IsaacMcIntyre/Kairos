@@ -2,11 +2,21 @@ import type { TodoItemType } from "@/types";
 import TodoItem from "../TodoItem/TodoItem";
 import { ChangeEvent, useState } from "react";
 import styles from "./TodoList.module.css";
+import axios, { AxiosError } from "axios";
 
 export type HandleChangeType = (
   id: TodoItemType["id"],
   change: ChangeEvent<HTMLInputElement>
 ) => void;
+
+axios
+  .get("http://localhost:4567/todo-items")
+  .then(function (response) {
+    console.log("response", response);
+  })
+  .catch(function (error: AxiosError) {
+    console.log("error", error);
+  });
 
 function TodoList() {
   const [todoItems, setTodoItems] = useState<TodoItemType[]>([
@@ -52,10 +62,7 @@ function TodoList() {
   return (
     <div className={styles.todoList}>
       <h2>Todo List</h2>
-      <div className={styles.todoItemContainer}>
-      {renderedTodoItems}
-
-      </div>
+      <div className={styles.todoItemContainer}>{renderedTodoItems}</div>
     </div>
   );
 }
