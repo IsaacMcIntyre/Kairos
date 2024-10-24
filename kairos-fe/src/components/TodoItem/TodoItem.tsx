@@ -1,4 +1,4 @@
-import type { TodoItemType } from "@/types";
+import { TodoItemType } from '../../../../kairos-api/types'
 import styles from "./TodoItem.module.css";
 import { HandleChangeType } from "../TodoList/TodoList";
 

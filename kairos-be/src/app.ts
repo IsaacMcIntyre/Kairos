@@ -1,11 +1,15 @@
 import express, { Request, Response } from 'express';
+import cors from 'cors';
+// const cors = require('cors')
 import { TodoItemType } from '../../kairos-api/types'
 
 const app = express()
+app.use(cors());
 
 const port = 4567
-app.get('/todo-items', (req: Request, res: Response) => {
 
+app.get('/todo-items', (req: Request, res: Response, _next) => {
+  console.log('todo-items hit', {cors})
   const initialList: TodoItemType[] = [
     {
       id: 0,
@@ -24,6 +28,12 @@ app.get('/todo-items', (req: Request, res: Response) => {
       itemName: "Hoover basement",
       creationTime: new Date("2024-05-20T15:22:24"),
       ticked: true,
+    },
+    {
+      id: 3,
+      itemName: "Dynamic Timed",
+      creationTime: new Date(new Date().getDate() + 7),
+      ticked: false,
     },
   ]
 
