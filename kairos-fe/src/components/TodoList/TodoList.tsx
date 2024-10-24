@@ -48,7 +48,8 @@ function TodoList() {
   return (
     <div className={styles.todoList}>
       <h2>Todo List</h2>
-      <div className={styles.todoItemContainer}>{renderedTodoItems}</div>
+
+      { todoItems.length > 0 ? <div className={styles.todoItemContainer}>{renderedTodoItems}</div> : "Loading..." }
     </div>
   );
 }
