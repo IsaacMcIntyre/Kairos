@@ -1,7 +1,7 @@
 import express, { Request, Response } from 'express';
 import cors from 'cors';
 // const cors = require('cors')
-import { TodoItemType } from '../../kairos-api/types'
+import { TodoItemType } from './types/types'
 
 const app = express()
 app.use(cors());

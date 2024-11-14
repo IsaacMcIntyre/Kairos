@@ -1,8 +1,10 @@
-import { TodoItemType } from '../../../../kairos-api/types'
+import { TodoItemType } from '../../../../kairos-be/src/types/types'
 import TodoItem from "../TodoItem/TodoItem";
 import { ChangeEvent, useEffect, useState } from "react";
 import styles from "./TodoList.module.css";
 import axios, { AxiosError } from "axios";
+import svg from "../../assets/loading-spinner.svg"
+import Image from "next/image";
 
 export type HandleChangeType = (
   id: TodoItemType["id"],
@@ -13,7 +15,6 @@ function TodoList() {
   const [todoItems, setTodoItems] = useState<TodoItemType[]>([]);
 
   useEffect(() => {
-    console.log('hello world useEffect Triggering now g')
     axios
       .get("http://localhost:4567/todo-items")
       .then(function (response) {
@@ -48,8 +49,7 @@ function TodoList() {
   return (
     <div className={styles.todoList}>
       <h2>Todo List</h2>
-
-      { todoItems.length > 0 ? <div className={styles.todoItemContainer}>{renderedTodoItems}</div> : "Loading..." }
+      {todoItems.length > 0 ? <div className={styles.todoItemContainer}>{renderedTodoItems}</div> : <Image src={svg} alt="loading spinner" className={styles.loadingSpinner}></Image>}
     </div>
   );
 }

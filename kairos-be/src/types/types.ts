@@ -3,4 +3,5 @@ export type TodoItemType = {
     itemName: string,
     creationTime: Date,
     ticked: boolean
+    whenTicked?: Date
 }
