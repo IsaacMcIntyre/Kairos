@@ -1,45 +1,29 @@
 import express, { Request, Response } from 'express';
 import cors from 'cors';
-// const cors = require('cors')
-import { TodoItemType } from './types/types'
+import knex from 'knex';
+import { TodoItemType } from './types/types';
+import knexConfig from '../knexfile';  // Import the knex config
 
-const app = express()
+// Initialize db
+const db = knex(knexConfig);
+
+const app = express();
 app.use(cors());
+app.use(express.json());
 
-const port = 4567
+const port = 4567;
 
-app.get('/todo-items', (req: Request, res: Response, _next) => {
-  console.log('todo-items hit', {cors})
-  const initialList: TodoItemType[] = [
-    {
-      id: 0,
-      itemName: "Clean washing machine",
-      creationTime: new Date("2024-03-17T03:24:00"),
-      ticked: false,
-    },
-    {
-      id: 1,
-      itemName: "Wash dishes",
-      creationTime: new Date("2024-05-20T15:20:00"),
-      ticked: false,
-    },
-    {
-      id: 2,
-      itemName: "Hoover basement",
-      creationTime: new Date("2024-05-20T15:22:24"),
-      ticked: true,
-    },
-    {
-      id: 3,
-      itemName: "Dynamic Timed",
-      creationTime: new Date(new Date().getDate() + 7),
-      ticked: false,
-    },
-  ]
-
-  res.json(initialList)
-})
+// Endpoint to fetch todo items from the database
+app.get('/todo-items', async (req: Request, res: Response) => {
+  try {
+    const todos: TodoItemType[] = await db('todos').select();  // Query database for todos
+    res.json(todos);
+  } catch (error) {
+    console.error('Error fetching todos:', error);
+    res.status(500).json({ error: 'Failed to fetch todo items' });
+  }
+});
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+  console.log(`Server running on port ${port}`);
+});
