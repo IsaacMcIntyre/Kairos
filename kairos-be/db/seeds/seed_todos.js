@@ -20,6 +20,8 @@ exports.seed = function(knex) {
           itemName: "Hoover basement",
           creationTime: new Date("2024-05-20T15:22:24"),
           ticked: true,
+          tickedTime: new Date("2024-05-20T15:20:00"),
+
         },
         {
           itemName: "Dynamic Timed",
