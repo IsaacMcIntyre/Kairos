@@ -1,9 +1,9 @@
-import { TodoItemType } from '../../../../kairos-be/src/types/types'
+import { SerializedTodoItemType } from '../../../../kairos-be/src/types/types'
 import styles from "./TodoItem.module.css";
 import { HandleChangeType } from "../TodoList/TodoList";
 
 function TodoItem(props: {
-  todoItem: TodoItemType;
+  todoItem: SerializedTodoItemType;
   handleChange: HandleChangeType;
 }) {
   return (

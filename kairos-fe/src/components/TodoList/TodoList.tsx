@@ -1,18 +1,17 @@
-import { TodoItemType } from '../../../../kairos-be/src/types/types'
+import { SerializedTodoItemType } from '../../../../kairos-be/src/types/types'
 import TodoItem from "../TodoItem/TodoItem";
 import { ChangeEvent, useEffect, useState } from "react";
 import styles from "./TodoList.module.css";
-import axios, { AxiosError } from "axios";
 import svg from "../../assets/loading-spinner.svg"
 import Image from "next/image";
 
 export type HandleChangeType = (
-  id: TodoItemType["id"],
+  id: SerializedTodoItemType["id"],
   change: ChangeEvent<HTMLInputElement>
 ) => void;
 
 function TodoList(props: {
-  todoItems: TodoItemType[];
+  todoItems: SerializedTodoItemType[];
   handleChange: HandleChangeType;
 }) {
   const renderedTodoItems = props.todoItems.map((todoItem) => (

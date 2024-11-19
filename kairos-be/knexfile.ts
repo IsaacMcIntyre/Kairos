@@ -1,7 +1,11 @@
 import dotenv from 'dotenv';
 import { Knex } from 'knex';
+import { types } from 'pg';
 
 dotenv.config();
+
+// Parse TIMESTAMP (OID: 1114) into JavaScript Date
+types.setTypeParser(1114, (str: string) => new Date(str));
 
 const config: Knex.Config = {
   client: 'pg',

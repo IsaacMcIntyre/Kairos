@@ -25,7 +25,7 @@ exports.seed = function(knex) {
         },
         {
           itemName: "Dynamic Timed",
-          creationTime: new Date(new Date().getDate() + 7),
+          creationTime: new Date("2024-10-20T15:20:00"),
           ticked: false,
         },      ]);
     });
