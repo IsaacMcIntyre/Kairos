@@ -2,7 +2,7 @@
 ## Server Setup
 ### Prerequisites
 - Docker Desktop installed
-- .env file with DB_PASSWORD setup
+- .env file with DB_PASSWORD setup (get this from renaming template.env)
 
 ### Running DB
 To get the database up and running, run the following bash commands.
