@@ -8,13 +8,13 @@ export type HandleChangeType = (
 	change: ChangeEvent<HTMLInputElement>
 ) => void;
 
-const sortUntickedList = (todos: SerializedTodoItemType[]) => {
+const sortMainList = (todos: SerializedTodoItemType[]) => {
 	return todos
 		.filter(todo => !todo.ticked)  // unticked items
 		.sort((a, b) => a.creationTime! - b.creationTime!);  // sort unticked items by creation date
 }
 
-const sortMainList = (todos: SerializedTodoItemType[]) => {
+const sortTempTickedList = (todos: SerializedTodoItemType[]) => {
 	return todos
 		.filter(todo => todo.ticked && Date.now() - todo.tickedTime! < 300000)  // ticked items in the last 5 minutes
 		.sort((a, b) => b.tickedTime! - a.tickedTime!);  // sort ticked items by tickedTime, latest first
@@ -46,8 +46,8 @@ function TodoListWrapper() {
 	}, []);
 
 	useEffect(() => {
-		console.log('sortUntickedList', sortUntickedList(todoItems))
 		console.log('sortMainList', sortMainList(todoItems))
+		console.log('sortTempTickedList', sortTempTickedList(todoItems))
 		console.log('sortHiddenList', sortHiddenList(todoItems))
 	}, todoItems)
 
