@@ -2,7 +2,7 @@
  * @param { import("knex").Knex } knex
  * @returns { Promise<void> } 
  */
-exports.seed = function(knex) {
+exports.seed = function (knex) {
   return knex('todos').del()  // Delete all existing rows to avoid duplicates
     .then(function () {
       return knex('todos').insert([
@@ -10,24 +10,497 @@ exports.seed = function(knex) {
           itemName: "Clean washing machine",
           creationTime: new Date("2024-03-17T03:24:00"),
           ticked: false,
+          tickedTime: new Date("2024-05-20T15:20:00"),
+
         },
         {
           itemName: "Wash dishes",
           creationTime: new Date("2024-05-20T15:20:00"),
-          ticked: false,
+          ticked: true,
+          tickedTime: new Date("2024-05-20T15:20:00"),
         },
         {
           itemName: "Hoover basement",
           creationTime: new Date("2024-05-20T15:22:24"),
           ticked: true,
           tickedTime: new Date("2024-05-20T15:20:00"),
-
         },
         {
           itemName: "Dynamic Timed",
           creationTime: new Date("2024-10-20T15:20:00"),
+          ticked: true,
+          tickedTime: new Date("2024-05-20T15:20:00"),
+        },
+        {
+          itemName: "Sort out royal mail stamps",
+          creationTime: new Date("2024-11-19T15:20:00"),
           ticked: false,
-        },      ]);
+          tickedTime: new Date("2024-05-20T15:20:00"),
+
+        },
+        {
+          itemName: "RMA walking boots",
+          creationTime: new Date("2024-11-20T15:20:00"),
+          ticked: false,
+          tickedTime: new Date("2024-05-20T15:20:00"),
+
+        },
+        {
+          itemName: "Return SD Card for replacement",
+          creationTime: new Date("2024-11-15T11:20:00"),
+          ticked: false,
+          tickedTime: new Date("2024-05-20T15:20:00"),
+
+        },
+        {
+          itemName: "Buy groceries",
+          creationTime: new Date("2024-10-01T10:15:00"),
+          ticked: true,
+          tickedTime: new Date("2024-10-02T12:00:00"),
+        },
+        {
+          itemName: "Walk the dog",
+          creationTime: new Date("2024-09-30T08:00:00"),
+          ticked: true,
+          tickedTime: new Date("2024-09-30T08:45:00"),
+        },
+        {
+          itemName: "Complete project report",
+          creationTime: new Date("2024-10-05T14:30:00"),
+          ticked: true,
+          tickedTime: new Date("2024-10-06T10:00:00"),
+        },
+        {
+          itemName: "Pay electricity bill",
+          creationTime: new Date("2024-09-20T18:00:00"),
+          ticked: true,
+          tickedTime: new Date("2024-09-20T19:30:00"),
+        },
+        {
+          itemName: "Prepare for meeting",
+          creationTime: new Date("2024-10-10T09:00:00"),
+          ticked: true,
+          tickedTime: new Date("2024-10-10T10:15:00"),
+        },
+        {
+          itemName: "Clean the car",
+          creationTime: new Date("2024-08-15T16:00:00"),
+          ticked: true,
+          tickedTime: new Date("2024-08-15T18:30:00"),
+        },
+        {
+          itemName: "Call mom",
+          creationTime: new Date("2024-10-14T13:20:00"),
+          ticked: true,
+          tickedTime: new Date("2024-10-14T14:00:00"),
+        },
+        {
+          itemName: "Fix broken chair",
+          creationTime: new Date("2024-09-01T10:10:00"),
+          ticked: true,
+          tickedTime: new Date("2024-09-02T12:00:00"),
+        },
+        {
+          itemName: "Read a chapter of a book",
+          creationTime: new Date("2024-09-28T21:00:00"),
+          ticked: true,
+          tickedTime: new Date("2024-09-28T22:15:00"),
+        },
+        {
+          itemName: "Write a blog post",
+          creationTime: new Date("2024-10-03T08:30:00"),
+          ticked: true,
+          tickedTime: new Date("2024-10-04T12:45:00"),
+        },
+        {
+          itemName: "Prepare dinner",
+          creationTime: new Date("2024-10-12T16:45:00"),
+          ticked: true,
+          tickedTime: new Date("2024-10-12T19:30:00"),
+        },
+        {
+          itemName: "Send an email to boss",
+          creationTime: new Date("2024-09-25T09:00:00"),
+          ticked: true,
+          tickedTime: new Date("2024-09-25T09:45:00"),
+        },
+        {
+          itemName: "Schedule doctor’s appointment",
+          creationTime: new Date("2024-09-05T11:10:00"),
+          ticked: true,
+          tickedTime: new Date("2024-09-05T11:30:00"),
+        },
+        {
+          itemName: "Attend yoga class",
+          creationTime: new Date("2024-09-15T07:00:00"),
+          ticked: true,
+          tickedTime: new Date("2024-09-15T08:30:00"),
+        },
+        {
+          itemName: "Organize closet",
+          creationTime: new Date("2024-09-20T14:00:00"),
+          ticked: true,
+          tickedTime: new Date("2024-09-20T16:00:00"),
+        },
+        {
+          itemName: "Plant flowers in garden",
+          creationTime: new Date("2024-07-12T15:00:00"),
+          ticked: true,
+          tickedTime: new Date("2024-07-13T10:00:00"),
+        },
+        {
+          itemName: "Watch a documentary",
+          creationTime: new Date("2024-09-19T20:00:00"),
+          ticked: true,
+          tickedTime: new Date("2024-09-19T22:00:00"),
+        },
+        {
+          itemName: "Make a donation",
+          creationTime: new Date("2024-09-18T12:30:00"),
+          ticked: true,
+          tickedTime: new Date("2024-09-18T14:00:00"),
+        },
+        {
+          itemName: "Update CV",
+          creationTime: new Date("2024-09-11T10:00:00"),
+          ticked: true,
+          tickedTime: new Date("2024-09-11T12:15:00"),
+        },
+        {
+          itemName: "Prepare a smoothie",
+          creationTime: new Date("2024-08-14T07:45:00"),
+          ticked: true,
+          tickedTime: new Date("2024-08-14T08:15:00"),
+        },
+        {
+          itemName: "Replace lightbulbs",
+          creationTime: new Date("2024-09-01T18:00:00"),
+          ticked: true,
+          tickedTime: new Date("2024-09-01T18:20:00"),
+        },
+        {
+          itemName: "Review expense report",
+          creationTime: new Date("2024-10-05T11:15:00"),
+          ticked: true,
+          tickedTime: new Date("2024-10-05T13:00:00"),
+        },
+        {
+          itemName: "Order a birthday gift",
+          creationTime: new Date("2024-09-22T15:45:00"),
+          ticked: true,
+          tickedTime: new Date("2024-09-23T10:00:00"),
+        },
+        {
+          itemName: "Pick up dry cleaning",
+          creationTime: new Date("2024-08-20T16:30:00"),
+          ticked: true,
+          tickedTime: new Date("2024-08-21T09:00:00"),
+        },
+        {
+          itemName: "Learn a new recipe",
+          creationTime: new Date("2024-09-10T17:00:00"),
+          ticked: true,
+          tickedTime: new Date("2024-09-10T19:30:00"),
+        }, {
+          itemName: "Write a thank-you note",
+          creationTime: new Date("2024-08-30T13:10:00"),
+          ticked: true,
+          tickedTime: new Date("2024-08-30T14:30:00"),
+        },
+        {
+          itemName: "Attend a webinar",
+          creationTime: new Date("2024-09-21T10:00:00"),
+          ticked: true,
+          tickedTime: new Date("2024-09-21T12:00:00"),
+        },
+        {
+          itemName: "Buy a new book",
+          creationTime: new Date("2024-09-05T14:20:00"),
+          ticked: true,
+          tickedTime: new Date("2024-09-06T16:00:00"),
+        },
+        {
+          itemName: "Do the laundry",
+          creationTime: new Date("2024-10-15T11:30:00"),
+          ticked: true,
+          tickedTime: new Date("2024-10-15T15:30:00"),
+        },
+        {
+          itemName: "Meditate for 30 minutes",
+          creationTime: new Date("2024-09-10T07:00:00"),
+          ticked: true,
+          tickedTime: new Date("2024-09-10T07:30:00"),
+        },
+        {
+          itemName: "Backup phone photos",
+          creationTime: new Date("2024-09-01T09:45:00"),
+          ticked: true,
+          tickedTime: new Date("2024-09-01T11:00:00"),
+        },
+        {
+          itemName: "Plan a family trip",
+          creationTime: new Date("2024-10-05T08:00:00"),
+          ticked: true,
+          tickedTime: new Date("2024-10-06T10:00:00"),
+        },
+        {
+          itemName: "Wash windows",
+          creationTime: new Date("2024-09-03T12:00:00"),
+          ticked: true,
+          tickedTime: new Date("2024-09-03T13:30:00"),
+        },
+        {
+          itemName: "Research car insurance",
+          creationTime: new Date("2024-09-20T10:00:00"),
+          ticked: true,
+          tickedTime: new Date("2024-09-21T12:00:00"),
+        },
+        {
+          itemName: "Practice a new language",
+          creationTime: new Date("2024-09-05T08:30:00"),
+          ticked: true,
+          tickedTime: new Date("2024-09-05T09:15:00"),
+        },
+        {
+          itemName: "Update software",
+          creationTime: new Date("2024-08-27T15:00:00"),
+          ticked: true,
+          tickedTime: new Date("2024-08-27T15:30:00"),
+        },
+        {
+          itemName: "Check bank statements",
+          creationTime: new Date("2024-10-09T14:10:00"),
+          ticked: true,
+          tickedTime: new Date("2024-10-09T15:45:00"),
+        },
+        {
+          itemName: "Organize workspace",
+          creationTime: new Date("2024-09-08T16:45:00"),
+          ticked: true,
+          tickedTime: new Date("2024-09-08T17:30:00"),
+        },
+        {
+          itemName: "Repair kitchen faucet",
+          creationTime: new Date("2024-09-12T10:15:00"),
+          ticked: true,
+          tickedTime: new Date("2024-09-12T12:30:00"),
+        },
+        {
+          itemName: "Declutter inbox",
+          creationTime: new Date("2024-09-01T09:00:00"),
+          ticked: true,
+          tickedTime: new Date("2024-09-01T11:15:00"),
+        },
+        {
+          itemName: "Paint a canvas",
+          creationTime: new Date("2024-09-18T14:00:00"),
+          ticked: true,
+          tickedTime: new Date("2024-09-18T16:45:00"),
+        },
+        {
+          itemName: "Renew library books",
+          creationTime: new Date("2024-10-01T12:20:00"),
+          ticked: true,
+          tickedTime: new Date("2024-10-01T13:00:00"),
+        },
+        {
+          itemName: "Reorganize kitchen pantry",
+          creationTime: new Date("2024-08-31T13:40:00"),
+          ticked: true,
+          tickedTime: new Date("2024-08-31T15:30:00"),
+        },
+        {
+          itemName: "Plan next week’s meals",
+          creationTime: new Date("2024-10-15T18:00:00"),
+          ticked: true,
+          tickedTime: new Date("2024-10-15T19:30:00"),
+        },
+        {
+          itemName: "Attend a local event",
+          creationTime: new Date("2024-09-17T17:00:00"),
+          ticked: true,
+          tickedTime: new Date("2024-09-17T20:00:00"),
+        },
+        {
+          itemName: "Donate old clothes",
+          creationTime: new Date("2024-09-25T13:15:00"),
+          ticked: true,
+          tickedTime: new Date("2024-09-25T16:00:00"),
+        },
+        {
+          itemName: "Find a new podcast",
+          creationTime: new Date("2024-09-03T08:00:00"),
+          ticked: true,
+          tickedTime: new Date("2024-09-03T08:45:00"),
+        },
+        {
+          itemName: "Explore a hiking trail",
+          creationTime: new Date("2024-09-15T07:00:00"),
+          ticked: true,
+          tickedTime: new Date("2024-09-15T09:30:00"),
+        }, {
+          itemName: "Organize a photo album",
+          creationTime: new Date("2024-09-12T15:00:00"),
+          ticked: true,
+          tickedTime: new Date("2024-09-13T12:30:00"),
+        },
+        {
+          itemName: "Buy a birthday cake",
+          creationTime: new Date("2024-10-05T13:00:00"),
+          ticked: true,
+          tickedTime: new Date("2024-10-05T15:00:00"),
+        },
+        {
+          itemName: "Replace worn-out shoes",
+          creationTime: new Date("2024-09-20T14:10:00"),
+          ticked: true,
+          tickedTime: new Date("2024-09-21T10:00:00"),
+        },
+        {
+          itemName: "Setup a family budget",
+          creationTime: new Date("2024-10-02T11:20:00"),
+          ticked: true,
+          tickedTime: new Date("2024-10-02T13:30:00"),
+        },
+        {
+          itemName: "Call an old friend",
+          creationTime: new Date("2024-08-15T19:00:00"),
+          ticked: true,
+          tickedTime: new Date("2024-08-15T20:00:00"),
+        },
+        {
+          itemName: "Attend parent-teacher meeting",
+          creationTime: new Date("2024-09-30T17:00:00"),
+          ticked: true,
+          tickedTime: new Date("2024-09-30T18:30:00"),
+        },
+        {
+          itemName: "Do a fitness routine",
+          creationTime: new Date("2024-09-15T06:45:00"),
+          ticked: true,
+          tickedTime: new Date("2024-09-15T07:30:00"),
+        },
+        {
+          itemName: "Learn a coding skill",
+          creationTime: new Date("2024-09-05T10:15:00"),
+          ticked: true,
+          tickedTime: new Date("2024-09-05T11:45:00"),
+        },
+        {
+          itemName: "Bake cookies",
+          creationTime: new Date("2024-09-08T16:00:00"),
+          ticked: true,
+          tickedTime: new Date("2024-09-08T17:45:00"),
+        },
+        {
+          itemName: "Fix the garden fence",
+          creationTime: new Date("2024-08-23T09:10:00"),
+          ticked: true,
+          tickedTime: new Date("2024-08-24T10:30:00"),
+        },
+        {
+          itemName: "Write down weekly goals",
+          creationTime: new Date("2024-09-27T20:00:00"),
+          ticked: true,
+          tickedTime: new Date("2024-09-27T21:15:00"),
+        },
+        {
+          itemName: "Shop for winter clothes",
+          creationTime: new Date("2024-09-10T12:30:00"),
+          ticked: true,
+          tickedTime: new Date("2024-09-11T14:00:00"),
+        },
+        {
+          itemName: "Paint the bedroom walls",
+          creationTime: new Date("2024-09-02T09:00:00"),
+          ticked: true,
+          tickedTime: new Date("2024-09-03T17:30:00"),
+        },
+        {
+          itemName: "Set up a morning routine",
+          creationTime: new Date("2024-09-01T07:00:00"),
+          ticked: true,
+          tickedTime: new Date("2024-09-01T08:30:00"),
+        },
+        {
+          itemName: "Clean up the garage",
+          creationTime: new Date("2024-09-14T10:00:00"),
+          ticked: true,
+          tickedTime: new Date("2024-09-14T13:00:00"),
+        },
+        {
+          itemName: "Organize a charity drive",
+          creationTime: new Date("2024-09-05T14:30:00"),
+          ticked: true,
+          tickedTime: new Date("2024-09-06T16:00:00"),
+        },
+        {
+          itemName: "Write a daily journal entry",
+          creationTime: new Date("2024-09-12T08:00:00"),
+          ticked: true,
+          tickedTime: new Date("2024-09-12T08:30:00"),
+        },
+        {
+          itemName: "Host a dinner party",
+          creationTime: new Date("2024-10-07T18:00:00"),
+          ticked: true,
+          tickedTime: new Date("2024-10-07T22:00:00"),
+        },
+        {
+          itemName: "Update personal finance records",
+          creationTime: new Date("2024-09-20T11:30:00"),
+          ticked: true,
+          tickedTime: new Date("2024-09-20T12:45:00"),
+        },
+        {
+          itemName: "Create a new playlist",
+          creationTime: new Date("2024-09-15T13:15:00"),
+          ticked: true,
+          tickedTime: new Date("2024-09-15T14:00:00"),
+        },
+        {
+          itemName: "Find a good podcast series",
+          creationTime: new Date("2024-09-04T09:45:00"),
+          ticked: true,
+          tickedTime: new Date("2024-09-04T10:30:00"),
+        },
+        {
+          itemName: "Build a DIY bookshelf",
+          creationTime: new Date("2024-09-20T14:00:00"),
+          ticked: true,
+          tickedTime: new Date("2024-09-21T16:30:00"),
+        },
+        {
+          itemName: "Reorganize old files",
+          creationTime: new Date("2024-09-03T08:30:00"),
+          ticked: true,
+          tickedTime: new Date("2024-09-03T09:45:00"),
+        },
+        {
+          itemName: "Take a relaxing bath",
+          creationTime: new Date("2024-10-10T20:00:00"),
+          ticked: true,
+          tickedTime: new Date("2024-10-10T21:15:00"),
+        },
+        {
+          itemName: "Learn a meditation technique",
+          creationTime: new Date("2024-09-05T10:00:00"),
+          ticked: true,
+          tickedTime: new Date("2024-09-05T11:15:00"),
+        },
+        {
+          itemName: "Clean up desktop icons",
+          creationTime: new Date("2024-09-02T16:30:00"),
+          ticked: true,
+          tickedTime: new Date("2024-09-02T17:00:00"),
+        },
+        {
+          itemName: "Try a new workout class",
+          creationTime: new Date("2024-10-02T08:00:00"),
+          ticked: true,
+          tickedTime: new Date("2024-10-02T09:30:00"),
+        }
+      ]);
     });
 };
 
