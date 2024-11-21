@@ -8,28 +8,9 @@ export type HandleChangeType = (
 	change: ChangeEvent<HTMLInputElement>
 ) => void;
 
-const sortMainList = (todos: SerializedTodoItemType[]) => {
-	return todos
-		.filter(todo => !todo.ticked)  // unticked items
-		.sort((a, b) => a.creationTime! - b.creationTime!);  // sort unticked items by creation date
-}
-
-const sortTempTickedList = (todos: SerializedTodoItemType[]) => {
-	return todos
-		.filter(todo => todo.ticked && Date.now() - todo.tickedTime! < 300000)  // ticked items in the last 5 minutes
-		.sort((a, b) => b.tickedTime! - a.tickedTime!);  // sort ticked items by tickedTime, latest first
-}
-
-const sortHiddenList = (todos: SerializedTodoItemType[]) => {
-	return todos
-		.filter(todo => todo.ticked && Date.now() - todo.tickedTime! >= 300000)  // ticked items over 5 minutes
-		.sort((a, b) => b.tickedTime! - a.tickedTime!);  // sort ticked items by tickedTime, latest first
-}
-
-
-
 function TodoListWrapper() {
 	const [todoItems, setTodoItems] = useState<SerializedTodoItemType[]>([]);
+	const [hiddenTodoItems, setHiddenTodoItems] = useState<SerializedTodoItemType[]>([])
 
 	useEffect(() => {
 		axios
@@ -44,12 +25,6 @@ function TodoListWrapper() {
 
 
 	}, []);
-
-	useEffect(() => {
-		console.log('sortMainList', sortMainList(todoItems))
-		console.log('sortTempTickedList', sortTempTickedList(todoItems))
-		console.log('sortHiddenList', sortHiddenList(todoItems))
-	}, todoItems)
 
 	const handleTodoItemChange: HandleChangeType = (id, change) => {
 		// TODO: handle backend update
